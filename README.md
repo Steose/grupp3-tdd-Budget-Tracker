@@ -2,8 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-
-![LICENSE](https://img.shields.io/badge/LICENSE-purple)
+Monster Tracker
 
 
 

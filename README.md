@@ -1,6 +1,6 @@
 # grupp3-tdd-Budget-Tracker 
 
-![grupp3-tdd-Budget-Tracker](https://img.shields.io/badge/https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker-purple)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 
 ![LICENSE](https://img.shields.io/badge/LICENSE-purple)

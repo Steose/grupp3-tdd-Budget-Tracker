@@ -2,11 +2,10 @@
 
 
 
-[![](https://img.shields.io/badge/grupp3-tdd-BudgetTracker?style=for-the-badge)]()
+[![](https://img.shields.io/badge/grupp3-tdd_Budget_Tracker-blue?style=for-the-badge)]()
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Monster Tracker
-
 
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/stephenucheosedumme/Tdd_Budget_Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj": {}
+    "/Users/stephenucheosedumme/grupp3-tdd-Budget-Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj": {}
   },
   "projects": {
-    "/Users/stephenucheosedumme/Tdd_Budget_Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj": {
+    "/Users/stephenucheosedumme/grupp3-tdd-Budget-Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/stephenucheosedumme/Tdd_Budget_Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj",
+        "projectUniqueName": "/Users/stephenucheosedumme/grupp3-tdd-Budget-Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj",
         "projectName": "BudgetTracker.Core",
-        "projectPath": "/Users/stephenucheosedumme/Tdd_Budget_Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj",
+        "projectPath": "/Users/stephenucheosedumme/grupp3-tdd-Budget-Tracker/BudgetTracker/BudgetTracker.Core/BudgetTracker.Core.csproj",
         "packagesPath": "/Users/stephenucheosedumme/.nuget/packages/",
-        "outputPath": "/Users/stephenucheosedumme/Tdd_Budget_Tracker/BudgetTracker/BudgetTracker.Core/obj/",
+        "outputPath": "/Users/stephenucheosedumme/grupp3-tdd-Budget-Tracker/BudgetTracker/BudgetTracker.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/stephenucheosedumme/.nuget/NuGet/NuGet.Config"

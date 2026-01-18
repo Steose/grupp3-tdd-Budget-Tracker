@@ -2,6 +2,7 @@
 # grupp3-tdd-Budget-Tracker
 
 [![](https://img.shields.io/badge/grupp3-tdd_Budget_Tracker-blue?style=for-the-badge)]()
+[![.NET Build & Test](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 # BudgetTracker
@@ -21,11 +22,11 @@ A personal budgeting application with a clean Core library, API endpoints, and a
 
 ## Configuration
 
-Set Gemini configuration via environment variables (optional):
+Set 1minAI configuration via environment variables (optional):
 
 ```bash
-export GEMINI_BASE_URL="https://your-gemini-proxy-host"
-export GEMINI_API_KEY="your-key"
+export ONEMINAI_API_KEY="your-key"
+export ONEMINAI_MODEL="gpt-4o-mini"
 ```
 
 `appsettings.json` contains the default SQLite connection string.

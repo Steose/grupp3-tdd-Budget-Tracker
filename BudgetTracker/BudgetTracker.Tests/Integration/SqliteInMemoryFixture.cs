@@ -51,7 +51,10 @@ public sealed class SqliteInMemoryFixture : IAsyncLifetime
                 services.AddDbContext<BudgetTrackerDbContext>(options =>
                     options.UseSqlite(_connection));
 
+<<<<<<< HEAD
                 // ❌ Ingen EnsureCreated/Migrate här
+=======
+>>>>>>> b735ec81dd6befc0de630f609e29fb6569df8494
             });
         }
     }

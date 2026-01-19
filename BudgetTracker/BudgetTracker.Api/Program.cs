@@ -5,10 +5,13 @@ using BudgetTracker.Core.Repositories.Interfaces; // Import repository contracts
 using BudgetTracker.Core.Services; // Import service implementations.
 using BudgetTracker.Core.Services.Interfaces; // Import service contracts.
 using Microsoft.EntityFrameworkCore; // Import EF Core APIs.
+using Scalar.AspNetCore; // Import Scalar extension methods.
 
 var builder = WebApplication.CreateBuilder(args); // Create the application builder.
 
 builder.Services.AddControllers(); // Register controllers.
+builder.Services.AddEndpointsApiExplorer(); // Register OpenAPI explorer.
+builder.Services.AddSwaggerGen(); // Register Swagger generator.
 builder.Services.AddMemoryCache(); // Register in-memory cache.
 
 builder.Services.AddDbContext<BudgetTrackerDbContext>(options => // Register DbContext.
@@ -46,6 +49,10 @@ if (app.Environment.IsDevelopment()) // Check for development.
     var db = scope.ServiceProvider.GetRequiredService<BudgetTrackerDbContext>(); // Resolve DbContext.
     await db.Database.MigrateAsync(); // Apply migrations.
     await SeedData.EnsureSeededAsync(db); // Seed default data.
+
+    app.UseSwagger(); // Enable Swagger JSON.
+    app.UseSwaggerUI(); // Enable Swagger UI.
+    app.MapScalarApiReference(); // Enable Scalar API reference UI.
 } // Close the if block.
 
 app.MapControllers(); // Map controller routes.

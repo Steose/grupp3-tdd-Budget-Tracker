@@ -52,6 +52,8 @@ if (app.Environment.IsDevelopment()) // Check for development.
 app.UseStaticFiles(); // Enable static files.
 app.UseRouting(); // Enable routing.
 
+app.MapControllers(); // Map attribute-routed API controllers.
+
 app.MapControllerRoute( // Map default MVC route.
     name: "default", // Provide route name.
     pattern: "{controller=Home}/{action=Index}/{id?}"); // Provide route pattern.

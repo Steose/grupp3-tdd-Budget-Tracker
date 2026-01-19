@@ -19,6 +19,13 @@ public sealed class SqliteInMemoryFixture : IAsyncLifetime
     {
         await _connection.OpenAsync();
         Factory = new ApiWebApplicationFactory(_connection);
+
+        // ✅ Skapa schema exakt en gång per fixture
+        using var scope = Factory.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<BudgetTrackerDbContext>();
+
+        await db.Database.EnsureDeletedAsync();
+        await db.Database.EnsureCreatedAsync();
     }
 
     public Task DisposeAsync()
@@ -32,17 +39,19 @@ public sealed class SqliteInMemoryFixture : IAsyncLifetime
     {
         private readonly DbConnection _connection;
 
-        public ApiWebApplicationFactory(DbConnection connection)
-        {
-            _connection = connection;
-        }
+        public ApiWebApplicationFactory(DbConnection connection) => _connection = connection;
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
+            builder.UseEnvironment("Testing"); // ✅ viktigt
+
             builder.ConfigureServices(services =>
             {
                 services.RemoveAll<DbContextOptions<BudgetTrackerDbContext>>();
-                services.AddDbContext<BudgetTrackerDbContext>(options => options.UseSqlite(_connectionb735ec81dd6befc0de630f609e29fb6569df8494
+                services.AddDbContext<BudgetTrackerDbContext>(options =>
+                    options.UseSqlite(_connection));
+
+                // ❌ Ingen EnsureCreated/Migrate här
             });
         }
     }

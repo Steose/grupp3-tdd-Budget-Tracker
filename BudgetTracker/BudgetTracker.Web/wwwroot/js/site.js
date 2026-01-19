@@ -89,16 +89,17 @@ const bindFormValidation = () => {
   const nameInput = form.querySelector("input[name='Name']");
   const balanceInput = form.querySelector("input[name='InitialBalance']");
   const submitButton = form.querySelector("button[type='submit']");
+  if (!nameInput || !balanceInput || !submitButton) return;
 
   const updateState = () => {
-    const nameValid = (nameInput?.value ?? "").trim().length > 0;
-    const balanceValue = Number.parseFloat(balanceInput?.value ?? "0");
+    const nameValid = nameInput.value.trim().length > 0;
+    const balanceValue = Number.parseFloat(balanceInput.value ?? "0");
     const balanceValid = Number.isFinite(balanceValue) && balanceValue >= 0;
-    if (submitButton) submitButton.disabled = !(nameValid && balanceValid);
+    submitButton.disabled = !(nameValid && balanceValid);
   };
 
-  nameInput?.addEventListener("input", updateState);
-  balanceInput?.addEventListener("input", updateState);
+  nameInput.addEventListener("input", updateState);
+  balanceInput.addEventListener("input", updateState);
   updateState();
 };
 

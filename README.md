@@ -1,23 +1,23 @@
-
 # grupp3-tdd-Budget-Tracker
 
-[![](https://img.shields.io/badge/grupp3-tdd_Budget_Tracker-blue?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![GRUPP3](https://img.shields.io/badge/group-3-blue)
+![TDD Budget Tracker](https://img.shields.io/badge/TDD-Budget%20Tracker-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
+![.NET Build & Test](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml)
 
-[![.NET Build & Test](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Campus-Molndal-CLO25/grupp3-tdd-Budget-Tracker/actions/workflows/dotnet-desktop.yml)
+## Projektbeskrivning
+BudgetTracker är en personlig budgetapplikation byggd i .NET med fokus på **TDD**, tydlig arkitektur och separation av ansvar.  
+Projektet består av ett Core-lager, ett REST-API och ett MVC-baserat webbgränssnitt.
 
-# BudgetTracker
+## Projektstruktur
+- **BudgetTracker.Core** – Domänmodeller, DTO:er, repositories och services  
+- **BudgetTracker.Api** – REST API for accounts, transactions, categories, budgets, reports, and dashboard. 
+- **BudgetTracker.Web** – MVC-baserat webbgränssnitt  with account and Gemini advice experiences.
+- **BudgetTracker.Tests** – Tester (TDD)
 
-A personal budgeting application with a clean Core library, API endpoints, and a web dashboard.
+## Setup instruktioner
 
-## Projects
-
-- `BudgetTracker.Core` - Domain, DTOs, repositories, and services.
-- `BudgetTracker.Api` - REST API for accounts, transactions, categories, budgets, reports, and dashboard.
-- `BudgetTracker.Web` - MVC UI with account and Gemini advice experiences.
-
-## Requirements
-
+### Krav
 - .NET 10 SDK
 - SQLite
 
@@ -34,50 +34,68 @@ Window
 $env:ONEMINAI_API_KEY="din-nyckel-här"
 $env:ONEMINAI_MODEL="gpt-4o-mini"
 
-
 ```
-
 `appsettings.json` contains the default SQLite connection string.
 
-## Run the API
 
+### Kör API
 ```bash
 dotnet run --project BudgetTracker.Api
 ```
 
-The API exposes endpoints under `/api`.
-
-## Run the Web UI
-
+### Kör Web
 ```bash
 dotnet run --project BudgetTracker.Web
 ```
 
-## Migrations
+## API Endpoints (översikt)
 
-Migrations live in `BudgetTracker.Core`. To add and apply migrations:
+### Budgets
+- POST `/api/budgets`
+- GET `/api/budgets?month=YYYY-MM`
+- PUT `/api/budgets/{id}`
+- DELETE `/api/budgets/{id}`
 
-```bash
-dotnet ef migrations add <Name> -p BudgetTracker.Core -s BudgetTracker.Api
-dotnet ef database update -p BudgetTracker.Core -s BudgetTracker.Api
-```
+### Transactions
+- POST `/api/transactions`
+- GET `/api/transactions`
+- GET `/api/transactions/{id}`
+- PUT `/api/transactions/{id}`
+- DELETE `/api/transactions/{id}`
 
-## Tests
+### Dashboard
+- GET `/api/dashboard?year={year}&month={month}`
 
+## Swagger / OpenAPI
+Swagger och OpenAPI är aktiverat i **Development**.
+
+- Swagger UI: `/swagger`
+- OpenAPI JSON: `/swagger/v1/swagger.json`
+- Scalar API Reference: `/scalar/v1`
+
+## Databas
+SQLite via Entity Framework Core.
+
+Tabeller:
+- Accounts (unika namn)
+- Categories (unika namn)
+- Transactions
+- Budgets (unik per Category + Month)
+
+## Tester
 ```bash
 dotnet test BudgetTracker.Tests/BudgetTracker.Tests.csproj
 ```
-
 ## Coverage
-
 Run coverage with the built-in coverlet collector:
-
 ```bash
 dotnet test BudgetTracker.Tests/BudgetTracker.Tests.csproj --collect:"XPlat Code Coverage" --settings coverlet.runsettings
 ```
 
-Coverage reports are emitted under `BudgetTracker.Tests/TestResults/` as `coverage.cobertura.xml`.
+## Teammedlemmar
+- **Rayan Care** – Core  
+- **Stephan** – API  
+- **Ahmed** – Web  
 
-## Docs
-
-- `UsersStory.md` contains the user stories and acceptance criteria.
+## License
+MIT
